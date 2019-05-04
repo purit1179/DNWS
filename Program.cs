@@ -171,7 +171,7 @@ namespace DNWS
             request.addProperty("RemoteEndPoint", _client.RemoteEndPoint.ToString());
 
             // We can handle only GET now
-            if(request.Status != 200) {
+            if (request.Status != 200) {
                 response = new HTTPResponse(request.Status);
             }
             else
