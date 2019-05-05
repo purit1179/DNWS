@@ -62,8 +62,6 @@ namespace DNWS
         _method = "GET";
       } else if(statusLine[0].ToLower().Equals("post")) {
         _method = "POST";
-      } else if(statusLine[0].ToLower().Equals("post")) {
-        _method = "POST";
       }else if (statusLine[0].ToLower().Equals("delete"))
       {
         _method = "DELETE";
