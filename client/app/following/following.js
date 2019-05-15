@@ -13,20 +13,15 @@ angular.module('followingList', ['ngRoute'])
       $http.get('http://localhost:8080/twitterapi/following/', requestOptions).then(function (response) {
         self.followings = response.data;
         });
+
         self.sendFollow = function sendFollow(followingname) {
-            
             const data = "followingname=" + encodeURIComponent(followingname);
-            $http.post('http://localhost:8080/twitterapi/following/', data, requestOptions).then(function (response) {
-                console.log(response);
-            });
+            $http.post('http://localhost:8080/twitterapi/following/', data, requestOptions);
         }
         self.sendUnFollow = function sendUnFollow(followingname) {
-            $http.defaults.headers.delete = { 'X-session': $rootScope.x_session, "Content-Type": "application/json;charset=utf-8" };
+            $http.defaults.headers.delete = { 'X-session': $rootScope.x_session };
             const data = "followingname=" + encodeURIComponent(followingname);
-            console.log(data);
-            $http.delete('http://localhost:8080/twitterapi/following/?' + data).then(function (response) {
-                console.log(response);
-            });
+            $http.delete('http://localhost:8080/twitterapi/following/?' + data);
         }
     }]
 });
